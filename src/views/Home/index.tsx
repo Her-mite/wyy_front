@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { usePersistFn } from 'ahooks'
+import React, { } from 'react'
+// import { usePersistFn } from 'ahooks'
 import { Route, Switch, withRouter, RouteComponentProps } from 'react-router-dom'
 import { Layout } from 'antd';
 // import { hasPermission } from '@/utils/hasPermission'
@@ -12,19 +12,17 @@ const Home: React.FC<any> = ((props: RouteComponentProps): JSX.Element => {
         <Layout className="layout">
             <Header />
             <Content className="wrapper_box">
-                <div className="wrapper_content">
-                    <Switch>
-                        {routes.map((route: routeTypes, index: number) => {
-                            return(
-                                <Route 
-                                    key={index} 
-                                    path={route.path} 
-                                    component={route.component}
-                                    />)
-                                    })
-                                }
-                    </Switch>
-                </div>
+                <Switch>
+                    {routes.map((route: routeTypes, index: number) => {
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                component={route.component}
+                            />)
+                    })
+                    }
+                </Switch>
             </Content>
         </Layout>
     </div>

@@ -5,11 +5,10 @@ import NotFound from '@/views/NotFound'
 import { routeTypes } from '@/interfaces/routes'
 const contentRoutes: routeTypes[] = [
     {
-        path: '/pages',
+        path: '/discover',
         exact: true,
         component: Discover,
-        requiresAuth: true,
-        
+        requiresAuth: true,   
     },
     {
         path: '*',
