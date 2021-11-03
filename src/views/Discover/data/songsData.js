@@ -1,0 +1,22 @@
+export const songsData=[
+    {
+        name:"name1",
+        imgUrl:"assets/images/icons/hot_logo"
+    },
+    {
+        name:"name2",
+        imgUrl:"assets/images/icons/hot_logo"
+    },
+    {
+        name:"name3",
+        imgUrl:"assets/images/icons/hot_logo"
+    },
+    {
+        name:"name4",
+        imgUrl:"assets/images/icons/hot_logo"
+    },
+    {
+        name:"name5",
+        imgUrl:"assets/images/icons/hot_logo"
+    }
+]

@@ -7,6 +7,8 @@ import { MenuInfo } from 'rc-menu/lib/interface';
 
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
+import SongContent from './SongContent';
+
 import first_dance from "@/assets/images/carousel/第一支舞.jpeg";
 import such_img from "@/assets/images/carousel/尽管如此.jpeg";
 import maraso_img from "@/assets/images/carousel/马拉松.jpeg";
@@ -25,8 +27,11 @@ const Discover = () => {
   const handleClick = (e: MenuInfo, value: { name?: string; path: any; }) => {
     setSelectKey(e.key);
   };
+
+
   return (
     <div>
+      {/* 子菜单 */}
       <Menu theme="dark" mode="horizontal" defaultSelectedKeys={[selectKey]} className='navMenu'>
         {
           discoverList.map((value, index) => {
@@ -37,15 +42,16 @@ const Discover = () => {
         }
       </Menu>
 
-      <div className="carousel-mode" style={{display:"flex", justifyContent:"center",}}>
-      <Carousel autoplay arrows prevArrow={<LeftOutlined />} nextArrow={<RightOutlined />}  style={{width:"800px"}}>
-          <img style={{width:"100%"}} src={first_dance} alt="first_dance" />
+      {/* 轮播图 */}
+      <div className="carousel-mode" style={{ display: "flex", justifyContent: "center", }}>
+        <Carousel autoplay arrows prevArrow={<LeftOutlined />} nextArrow={<RightOutlined />} style={{ width: "800px" }}>
+          <img src={first_dance} alt="first_dance" />
           <img src={such_img} alt="such_img" />
           <img src={maraso_img} alt="maraso_img" />
           <img src={star_img} alt="star_img" />
-      </Carousel>
+        </Carousel>
       </div>
-      
+      <SongContent />
 
 
     </div>
