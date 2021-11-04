@@ -1,8 +1,9 @@
-import { Card, Divider } from 'antd';
+import { Divider } from 'antd';
 
 import hot_logo from "@/assets/images/icons/hot_logo.png";
 
 import { songsData } from './data/songsData';
+import './index.less'
 
 const SongContent = () => {
     const contentTitle = ['华语', '流行', '摇滚', '民谣', '电子']
@@ -27,24 +28,36 @@ const SongContent = () => {
                 }
             </div>
             {/* 图片内容展示 */}
-            <div style={{ width: "800px", margin: "auto", display: "flex" }}>
+            <div style={{ width: "800px", margin: "auto", }}>
                 {
-
-                    songsData.map(value => {
-                        let imgSrc = require('@/' + value.imgUrl + '.png').default
+                    songsData.map(divData => {
                         return (
-                            <Card
-                                style={{ width: "180px" }}
-                                hoverable
+                            <div style={styles.songModule}>
+                                {
+                                    divData.map(value => {
+                                        let imgSrc = require('@/' + value.imgUrl + '.jpeg').default
+                                        return (
+                                            <div style={{position: 'relative', overflow: 'visible'}}>
+                                                <img
+                                                    alt={value.name}
+                                                    src={imgSrc}
+                                                    />
+                                                {/* 播放图标 */}
+                                                <div style={{position: 'absolute', bottom:"42px",right:"0px", width:"150px",height:"20px",backgroundColor:"#cccccc88"}} >
+                                                    {/* eslint-disable-next-line  */}
+                                                    <a style={{position:"absolute", right:"0px",bottom:"0px"}} className="playButton" title="播放" href={'javascript:;'}></a>
+                                                </div>
+                                                {/* 文字描述 */}
+                                                <div style={{width:"150px"}}>{value.describtion}</div>
 
-                            >
-                                <img
-                                    alt={value.name}
-                                    src={imgSrc}
-                                />
-
-                            </Card>
+                                            </div>
+                                         
+                                        )
+                                    })
+                                }
+                            </div>
                         )
+
                     })
 
                 }
@@ -89,6 +102,14 @@ const styles = {
         height: "30px",
         paddingRight: "10px",
         lineHgiht: "50px"
-    }
+    },
+    songModule: { 
+        width: "800px", 
+        margin: "auto", 
+        display: "flex", 
+        justifyContent: "space-between", 
+        paddingBottom:"30px" 
+    },
+    
 }
 export default SongContent
