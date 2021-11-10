@@ -37,21 +37,21 @@ const SongContent = () => {
                                     divData.map(value => {
                                         let imgSrc = require('@/' + value.imgUrl + '.jpeg').default
                                         return (
-                                            <div style={{position: 'relative', overflow: 'visible'}}>
+                                            <div style={{ position: 'relative', overflow: 'visible' }}>
                                                 <img
                                                     alt={value.name}
                                                     src={imgSrc}
-                                                    />
+                                                />
                                                 {/* 播放图标 */}
-                                                <div style={{position: 'absolute', bottom:"42px",right:"0px", width:"150px",height:"20px",backgroundColor:"#cccccc88"}} >
+                                                <div style={{ position: 'absolute', bottom: "42px", right: "0px", width: "150px", height: "20px", backgroundColor: "#cccccc88" }} >
                                                     {/* eslint-disable-next-line  */}
-                                                    <a style={{position:"absolute", right:"0px",bottom:"0px"}} className="playButton" title="播放" href={'javascript:;'}></a>
+                                                    <a style={{ position: "absolute", right: "0px", bottom: "0px" }} className="playButton" title="播放"></a>
                                                 </div>
                                                 {/* 文字描述 */}
-                                                <div style={{width:"150px"}}>{value.describtion}</div>
+                                                <div style={{ width: "150px" }}>{value.describtion}</div>
 
                                             </div>
-                                         
+
                                         )
                                     })
                                 }
@@ -62,6 +62,9 @@ const SongContent = () => {
 
                 }
             </div>
+            <audio style={{width:"80%"}} src={"https://music.163.com/song/media/outer/url?id=1349292048.mp3"} controls>
+                你的浏览器不支持音频播放哦！(;´༎ຶД༎ຶ`)
+            </audio>
         </div >
     )
 }
@@ -103,13 +106,13 @@ const styles = {
         paddingRight: "10px",
         lineHgiht: "50px"
     },
-    songModule: { 
-        width: "800px", 
-        margin: "auto", 
-        display: "flex", 
-        justifyContent: "space-between", 
-        paddingBottom:"30px" 
+    songModule: {
+        width: "800px",
+        margin: "auto",
+        display: "flex",
+        justifyContent: "space-between",
+        paddingBottom: "30px"
     },
-    
+
 }
 export default SongContent

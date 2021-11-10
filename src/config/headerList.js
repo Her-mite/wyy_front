@@ -4,7 +4,7 @@ const headerList = [
         path: "discover"
     },{
         name: "我的音乐",
-        path: "mymusic"
+        path: "lesson"
     },{
         name: "朋友",
         path: "friend"
