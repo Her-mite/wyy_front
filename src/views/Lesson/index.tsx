@@ -1,12 +1,12 @@
 
 import React from 'react';
 import { Menu } from 'antd';
-// import { Redirect, withRouter, Route, Switch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { SiderData } from './bookTitle'
 
 //  我的 页面展示内容
 const Lesson = () => {
-  const [openKeys, setOpenKeys] = React.useState([SiderData[0].name]);
+  const [openKeys, setOpenKeys] = React.useState(['']);
   const rootSubmenuKeys = SiderData.map(item => { return item.name });
 
   const onOpenChange = (keys: any) => {
@@ -17,6 +17,13 @@ const Lesson = () => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+  const history = useHistory(); 
+
+
+  const jumpArticle = (e:any)=>{
+    console.log(e.keyPath);
+    history.push({pathname: '/article', state: {keyPath:e.keyPath}});    
+  }
 
   // 渲染菜单
   const renderMenu = (sider: Array<any>) => {
@@ -24,8 +31,8 @@ const Lesson = () => {
       //没有子元素
       if (!item.children || !item.children.length) {
         return (
-          <Menu.Item key={item.name} onClick={(e)=>{console.log(e.keyPath)}}>
-            <span >{item.name}</span>
+          <Menu.Item key={item.name} onClick={(e)=>{jumpArticle(e)}} >
+            <span style={{display: "block",  textAlign:"center"}}>{item.name}</span>
           </Menu.Item>
         )
       } else {
@@ -42,7 +49,8 @@ const Lesson = () => {
   }
 
   return (
-    <div style={{ width: "100%", height: "50px", display: "block", background: "#FF00FF" }}>
+    <div style={{ width: "100%", height: "50px", display: "block" }}>
+      {/* target="_blank" */}
       <Menu mode="inline" openKeys={openKeys} onOpenChange={onOpenChange} style={{ width: "100%" }}>
         {renderMenu(SiderData)}
       </Menu>
