@@ -20,7 +20,6 @@ const Lesson = () => {
   const history = useHistory(); 
 
   const jumpArticle = (e:any)=>{
-    console.log(e.keyPath);
     // history.push({pathname: '/article', state: {keyPath:e.keyPath}});   // state传参， 页面刷新会丢失
     let audioPath = "/" + e.keyPath.reverse().join('/');
     
