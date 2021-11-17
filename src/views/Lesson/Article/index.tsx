@@ -60,7 +60,7 @@ const Article = () => {
                     style={{ width: '100%', height: '100%', border: "0" }}
                     id={'overviewIframe'}
                     className={'iframeStyle'}
-                    
+                    title={'content'}
                     >
                 </iframe>
             </div>
