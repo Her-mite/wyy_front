@@ -7,15 +7,12 @@ const { Option } = Select;
 
 // 文章内容
 const Article = () => {
-
-
     const location: any = useLocation(); //获取跳转页面携带的值
     const history: any = useHistory();
 
     const [speed, setSpeed] = useState(1)
 
     let audioPath = location.search.split('=')[1] // 提供文件具体位置， 服务器上为/home/hujq/application/data
-
     // 未找到资源时返回提示
     if (!audioPath) return (<>
         <Result
@@ -37,24 +34,37 @@ const Article = () => {
     const changeSpeed = (value: number) => {
         console.log("keee", value);
         setSpeed(value)
-        let v:any = document.getElementById("myaudio");
+        let v: any = document.getElementById("myaudio");
         v.playbackRate = value;
     }
 
     return (
-        <div style={{ display: 'flex', width: "100%", justifyContent: 'space-between', alignItems: 'center' }}>
-            <audio id="myaudio" style={{ width: "80%" }} src={url} controls>
-                你的浏览器不支持音频播放哦！(;´༎ຶД༎ຶ`)
-            </audio>
-            <div style={{ flex: 1 }}>
-                <Select defaultValue={speed} onChange={changeSpeed} >
-                    <Option value={0.75}>0.75~</Option>
-                    <Option value={1}>1.00-</Option>
-                    <Option value={1.25}>1.25!</Option>
-                    <Option value={1.5}>1.50!</Option>
-                </Select>
+        <>
+            <div style={{ display: 'flex', width: "100%", justifyContent: 'space-between', alignItems: 'center' }}>
+                <audio id="myaudio" style={{ width: "80%" }} src={url} controls>
+                    你的浏览器不支持音频播放哦！(;´༎ຶД༎ຶ`)
+                </audio>
+                <div style={{ flex: 1 }}>
+                    <Select defaultValue={speed} onChange={changeSpeed} >
+                        <Option value={0.75}>0.75~</Option>
+                        <Option value={1}>1.00-</Option>
+                        <Option value={1.25}>1.25!</Option>
+                        <Option value={1.5}>1.50!</Option>
+                    </Select>
+                </div>
+
             </div>
-        </div>
+            <div style={{ height: '85vh' }}>
+                <iframe
+                    src={`http://1.117.188.206/${audioPath}.html`}
+                    style={{ width: '100%', height: '100%', border: "0" }}
+                    id={'overviewIframe'}
+                    className={'iframeStyle'}
+                    
+                    >
+                </iframe>
+            </div>
+        </>
 
 
     );
